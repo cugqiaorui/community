@@ -31,9 +31,9 @@
     </select>
 
     <!--这里keyProperty id 是因为插入的时候id是自增的，需要先从数据库获取，再回填到user-->
-    <insert id="insert" parameterType="com.nowcoder.community.entity.User" keyProperty="id">
+    <insert id="insertUser" parameterType="com.nowcoder.community.entity.User" keyProperty="id">
         insert into user (<include refid="insertFields"></include>)
-        value (#{username}, #{password}, #{salt}, #{email}, #{type}, #{status}, #{activationCode}, #{headerUrl}, #{createTime})
+        values(#{username}, #{password}, #{salt}, #{email}, #{type}, #{status}, #{activationCode}, #{headerUrl}, #{createTime})
     </insert>
 
     <update id="updateStatus">

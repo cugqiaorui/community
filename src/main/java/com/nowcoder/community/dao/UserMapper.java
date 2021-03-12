@@ -3,6 +3,7 @@ package com.nowcoder.community.dao;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.nowcoder.community.entity.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 @Mapper
@@ -11,9 +12,11 @@ public interface UserMapper extends BaseMapper<User> {
 
     User selectByEmail(String email);
 
-    int updateStatus(int id,int status);
+    int insertUser(User user);
 
-    int updateHeader(int id,String headerUrl);
+    int updateStatus(@Param("id") int id, @Param("status") int status);
 
-    int updatePassword(int id,String password);
+    int updateHeader(@Param("id")int id,@Param("headerUrl")String headerUrl);
+
+    int updatePassword(@Param("id")int id,@Param("password")String password);
 }
